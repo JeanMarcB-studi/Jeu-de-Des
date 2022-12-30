@@ -1,0 +1,53 @@
+.center{
+  text-align: center;
+}
+
+h1{
+  color: red;
+}
+
+h2{
+  color: blue;
+  font-size: 4vw;
+  margin-bottom: 1vw;
+  margin-top: 5vw;
+}
+
+.container{
+  padding: 2vw;
+  border-width: 2vw;
+  border-color: brown;
+  border-radius: 4%;
+  border-style: solid;
+  text-align: center;
+  background-color: bisque;
+}
+
+button{
+  width: 15vw;
+  font-size: 2vw;
+
+}
+
+.current{
+  background-color: red;
+  width: 50%;
+  margin: auto;
+  font-size: 2vw;
+}
+
+#current1, #current2{
+  font-size: 4vw;
+  color:white;
+}
+
+#score1, #score2{
+  /* border: 1px solid blue; */
+  display: block;
+  padding: 0;
+  height: 2vm;
+
+  margin-top: 0;
+  font-size: 12vW;
+  color:red;
+}

@@ -4,6 +4,7 @@
 
 h1{
   color: red;
+  text-align: center;
 }
 
 h2{
@@ -26,7 +27,6 @@ h2{
 button{
   width: 15vw;
   font-size: 2vw;
-
 }
 
 .current{
@@ -50,4 +50,17 @@ button{
   margin-top: 0;
   font-size: 12vW;
   color:red;
+}
+
+#dice{
+  display:block;
+  border: 1px red solid;
+  height:80px;
+  width:80px;
+  margin-top: 8vw;
+  margin-bottom: 8vw;
+  margin-left: auto;
+  margin-right: auto;
+  font-size:7vw
+
 }

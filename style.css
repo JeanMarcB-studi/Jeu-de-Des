@@ -54,13 +54,39 @@ button{
 
 #dice{
   display:block;
-  border: 1px red solid;
-  height:80px;
-  width:80px;
+  border: 3px black solid;
+  border-radius: 10px;
+  height:100px;
+  width:100px;
   margin-top: 8vw;
   margin-bottom: 8vw;
   margin-left: auto;
   margin-right: auto;
-  font-size:7vw
-
+  font-size:7vw;
+  /* background-image: url("IMG/d-0.png"); */
+  background-size: 100%;
+  background-color: black;
 }
+
+.d0{
+  background-image: url("IMG/d-0.png")
+}
+.d1{
+  background-image: url("IMG/d-1.png")  
+}
+.d2{
+  background-image: url("IMG/d-2.png")  
+}
+.d3{
+  background-image: url("IMG/d-3.png")  
+}
+.d4{
+  background-image: url("IMG/d-4.png")  
+}
+.d5{
+  background-image: url("IMG/d-5.png")  
+}
+.d6{
+  background-image: url("IMG/d-6.png")  
+}
+

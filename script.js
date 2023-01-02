@@ -1,18 +1,27 @@
-console.log("start")
+console.log("start the program")
+
+// ----- PRELOAD SOUNDS
+
+const soundHold = new Audio("MP3/hold.mp3")
+const soundRollDice = new Audio("MP3/rollDice.mp3")
+const soundOooh = new Audio("MP3/oooh.mp3")
 
 // ----- INIT GAME VARIABLES
 
+const scoreToWin = 100
 let currentPlayer
-let score1
-let score2
-let current1
-let current2
+let score = new Array()
+let current = new Array()
+let addrScore = new Array()
+let addrCurrent = new Array()
 let resultDice
+let gamePlaying = false
+let oldValue = 0
 
-let addrScore1 = document.querySelector("#score1")
-let addrScore2 = document.querySelector("#score2")
-let addrCurrent1 = document.querySelector("#current1")
-let addrCurrent2 = document.querySelector("#current2")
+addrScore[1] = document.querySelector("#score1")
+addrScore[2] = document.querySelector("#score2")
+addrCurrent[1] = document.querySelector("#current1")
+addrCurrent[2] = document.querySelector("#current2")
 let addrDice = document.querySelector("#dice")
 
 let btonNewGame = document.querySelector("#btonNewGame")
@@ -22,60 +31,88 @@ let btonHold = document.querySelector("#btonHold")
 
 // ----- DEFINE GAME FUNCTIONS
 
+// show the dice face value
+
+var showDice = (value) => {
+  addrDice.classList.remove(`d${oldValue}`)
+  addrDice.classList.add(`d${value}`)
+  oldValue = value
+}
+
 // show the score for player 1 or 2
 var showScore = (player) => {
   console.log("showScore for player: " + player)
-  if (player == 1) {
-    addrScore1.innerText = score1
-  } else {
-    addrScore2.innerText = score2
-  }
+  addrScore[player].innerText = score[player]
+}
+
+// show the current value for player 1 or 2
+var showCurrent = (player) => {
+  console.log("showCurrent for player: " + player + " = "+ current[player])
+  
+  addrCurrent[player].innerText = current[player]
 }
 
 // start a new game
 var startNewGame = () => {
   console.log ("newGame")
-  score1 = 0
+  score[1] = 0
   showScore(1)
-  score2 = 0
+  score[2] = 0
   showScore(2)
+  current[1] = 0
+  current[2] = 0
   currentPlayer = 1
-  current1 = 0
-  current2 = 0
-  addrDice.innerText = '?'
+  gamePlaying = true
 }
 
 // roll the dice
 var rollDice = () => {
-  console.log("rollDice");
-  resultDice = 1 + Math.floor(Math.random() * 6);
-  addrDice.innerText = resultDice 
-
-  if (resultDice == 1){
-
+  if (gamePlaying) {
+    soundRollDice.play()
+    resultDice = 1 + Math.floor(Math.random() * 6);
+    // addrDice.innerText = resultDice 
+    showDice(resultDice)
+    console.log("rollDice: " + resultDice);
+    
+    if (resultDice == 1){
+      current[currentPlayer] = 0
+      showCurrent(currentPlayer)
+      changePlayer()
+  
+    } else {
+      current[currentPlayer] += resultDice
+      showCurrent(currentPlayer)
+    }
   }
 }
 
 // hold the Game
 var holdGame = () => {
-  console.log("holdGame");
-  currentPlayer == 1 ? score1 += current1 : score2 += current2
-  showScore(currentPlayer)
-  changePlayer();
+  if (gamePlaying) {
+    soundHold.play()
+    console.log("holdGame");
+    score[currentPlayer] += current[currentPlayer]
+    if (score[currentPlayer] >= 100) {
+      score[currentPlayer] = 100
+      gamePlaying = false
+      showWinner()
+    } else {      
+      showScore(currentPlayer)
+      changePlayer();
+    }
+  }
 }
 
 // change the player
 var changePlayer = () => {
   console.log("changePlayer");
   currentPlayer == 1 ? currentPlayer = 2 : currentPlayer = 1
-  
-  current1 = 0;
-  current2 = 0;
+  current[currentPlayer] = 0
 }
 
 // ----- SCANNING THE BUTTONS
 
-btonNewGame.addEventListener("click", () => newGame())
+btonNewGame.addEventListener("click", () => startNewGame())
 btonRollDice.addEventListener("click", () => rollDice())
 btonHold.addEventListener("click", () => holdGame())
 

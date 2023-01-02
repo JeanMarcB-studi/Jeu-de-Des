@@ -14,6 +14,7 @@ let score = new Array()
 let current = new Array()
 let addrScore = new Array()
 let addrCurrent = new Array()
+let addrPlayer = new Array()
 let resultDice
 let gamePlaying = false
 let oldValue = 0
@@ -22,6 +23,9 @@ addrScore[1] = document.querySelector("#score1")
 addrScore[2] = document.querySelector("#score2")
 addrCurrent[1] = document.querySelector("#current1")
 addrCurrent[2] = document.querySelector("#current2")
+addrPlayer[1] = document.querySelector("#player1")
+addrPlayer[2] = document.querySelector("#player2")
+
 let addrDice = document.querySelector("#dice")
 
 let btonNewGame = document.querySelector("#btonNewGame")
@@ -59,30 +63,38 @@ var startNewGame = () => {
   showScore(1)
   score[2] = 0
   showScore(2)
+  showDice(0)
   current[1] = 0
   current[2] = 0
   currentPlayer = 1
   gamePlaying = true
+  addrPlayer[1].classList.add("activePlayer")
+  addrPlayer[2].classList.remove("activePlayer")
 }
 
 // roll the dice
 var rollDice = () => {
   if (gamePlaying) {
-    soundRollDice.play()
+    soundRollDice.play()    
     resultDice = 1 + Math.floor(Math.random() * 6);
-    // addrDice.innerText = resultDice 
-    showDice(resultDice)
-    console.log("rollDice: " + resultDice);
-    
-    if (resultDice == 1){
-      current[currentPlayer] = 0
-      showCurrent(currentPlayer)
-      changePlayer()
-  
-    } else {
-      current[currentPlayer] += resultDice
-      showCurrent(currentPlayer)
-    }
+    showDice(0)
+    setTimeout(() => {
+      showDice(resultDice)
+      console.log("rollDice: " + resultDice);
+      
+      if (resultDice == 1){
+        soundOooh.play()
+        current[currentPlayer] = 0
+        setTimeout(() => {
+          showCurrent(currentPlayer)
+          changePlayer()
+        },999)
+        
+      } else {
+        current[currentPlayer] += resultDice
+        showCurrent(currentPlayer)
+      }
+    },800)
   }
 }
 
@@ -106,8 +118,15 @@ var holdGame = () => {
 // change the player
 var changePlayer = () => {
   console.log("changePlayer");
-  currentPlayer == 1 ? currentPlayer = 2 : currentPlayer = 1
-  current[currentPlayer] = 0
+  setTimeout(() => {
+    addrPlayer[currentPlayer].classList.remove("activePlayer")
+    currentPlayer == 1 ? currentPlayer = 2 : currentPlayer = 1
+    addrPlayer[currentPlayer].classList.add("activePlayer")
+  
+    current[currentPlayer] = 0
+    showCurrent(currentPlayer)
+  }, 1000
+  )
 }
 
 // ----- SCANNING THE BUTTONS

@@ -5,20 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="Skeleton-2.0.4/css/normalize.css">
-  <link rel="stylesheet" href="Skeleton-2.0.4/css/skeleton.css">
+  <!-- <link rel="stylesheet" href="Skeleton-2.0.4/css/skeleton.css"> -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1 class="">The ultimate dice game</h1>
+  <h1 class="">The "ultimate" dice game</h1>
+  <!-- <div style=" vertical-align: middle;text-align: center;padding: 0;"> -->
+
+    <button type="button" id="btonNewGame">
+      NEW GAME
+    </button> 
+  <!-- </div> -->
+
 <div class="container">
-  <div class="row">
+  <!-- <div class="row"> -->
 
     <!-- P L A Y E R  1 -->
     
-    <div class="five columns">
-      <h2>
+    <div class="colPlayer">
+      <div id="player1" class="player1 activePlayer">
         PLAYER 1
-      </h2>
+      </div>
 
       <div id="score1">
         0
@@ -36,11 +44,7 @@
     
     <!-- G A M E   C O N T R O L S -->
 
-    <div class="two columns">
-      <button type="button" id="btonNewGame">
-        NEW GAME
-      </button> 
-      
+    <div class="colButton">
       <div id="dice" class="d0">
                 
       </div>
@@ -59,10 +63,10 @@
     
     <!-- P L A Y E R  2 -->
     
-    <div class="five columns">
-      <h2>
+    <div class="colPlayer">
+      <div id="player2" class="player2">
         PLAYER 2
-      </h2>
+      </div>
 
       <div id="score2">
         0
@@ -80,7 +84,7 @@
     
     
 
-  </div>
+  <!-- </div> -->
 </div>
 
 <script src="script.js"></script>

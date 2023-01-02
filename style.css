@@ -7,14 +7,28 @@ h1{
   text-align: center;
 }
 
-h2{
-  color: blue;
+.player1, .player2{
+  width: 5em;
+  border-style: inset;
+  border-width: 3px;
+  border-color: rgb(241, 128, 21);
+  border-radius: 5px;
+  color: grey;
+  background-color: rgb(156, 156, 156);
   font-size: 4vw;
   margin-bottom: 1vw;
   margin-top: 5vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+.activePlayer{
+  background-color: rgb(246, 180, 106);
+  color:blue
 }
 
 .container{
+  display: flex;
   padding: 2vw;
   border-width: 2vw;
   border-color: brown;
@@ -22,18 +36,43 @@ h2{
   border-style: solid;
   text-align: center;
   background-color: bisque;
+  margin: 2%;
+}
+
+.colButton{
+  width:120px;
+}
+.colPlayer{
+  flex: 1;
 }
 
 button{
+  display: block;
   width: 15vw;
+  height: 6vh;
   font-size: 2vw;
+  font-weight: bolder;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2vh;
+  text-align: center;
+  overflow-wrap: break-word;
+  border-radius: 45%;
+}
+
+#btonNewGame{
+  color:blueviolet;
 }
 
 .current{
+  display:inline-block;
   background-color: red;
   width: 50%;
   margin: auto;
   font-size: 2vw;
+  height: 10vw;
+  vertical-align: middle;
+  padding: 10% 0 0 0;
 }
 
 #current1, #current2{
@@ -63,7 +102,6 @@ button{
   margin-left: auto;
   margin-right: auto;
   font-size:7vw;
-  /* background-image: url("IMG/d-0.png"); */
   background-size: 100%;
   background-color: black;
 }
@@ -89,4 +127,3 @@ button{
 .d6{
   background-image: url("IMG/d-6.png")  
 }
-

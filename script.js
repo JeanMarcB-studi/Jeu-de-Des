@@ -24,7 +24,7 @@ let btonHold = document.querySelector("#btonHold")
 
 // show the score for player 1 or 2
 var showScore = (player) => {
-  console.log(player)
+  console.log("showScore for player: " + player)
   if (player == 1) {
     addrScore1.innerText = score1
   } else {
@@ -33,7 +33,8 @@ var showScore = (player) => {
 }
 
 // start a new game
-var newGame = () => {
+var startNewGame = () => {
+  console.log ("newGame")
   score1 = 0
   showScore(1)
   score2 = 0
@@ -44,14 +45,20 @@ var newGame = () => {
   addrDice.innerText = '?'
 }
 
-// launch the dice
+// roll the dice
 var rollDice = () => {
-  resultDice = Math.floor(Math.random() * 6);
+  console.log("rollDice");
+  resultDice = 1 + Math.floor(Math.random() * 6);
   addrDice.innerText = resultDice 
+
+  if (resultDice == 1){
+
+  }
 }
 
 // hold the Game
 var holdGame = () => {
+  console.log("holdGame");
   currentPlayer == 1 ? score1 += current1 : score2 += current2
   showScore(currentPlayer)
   changePlayer();
@@ -59,17 +66,21 @@ var holdGame = () => {
 
 // change the player
 var changePlayer = () => {
+  console.log("changePlayer");
   currentPlayer == 1 ? currentPlayer = 2 : currentPlayer = 1
+  
+  current1 = 0;
+  current2 = 0;
 }
 
-// ----- SCAN THE BUTTONS
+// ----- SCANNING THE BUTTONS
 
-btonNewGame.addEventListener("click", newGame())
-btonRollDice.addEventListener("click", rollDice())
-btonHold.addEventListener("click", holdGame())
+btonNewGame.addEventListener("click", () => newGame())
+btonRollDice.addEventListener("click", () => rollDice())
+btonHold.addEventListener("click", () => holdGame())
 
 // ----- LAUNCH THE GAME
 
-newGame()
+startNewGame()
 
 

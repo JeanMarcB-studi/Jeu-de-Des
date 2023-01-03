@@ -49,34 +49,40 @@ h1{
 button{
   display: block;
   width: 15vw;
-  height: 6vh;
-  font-size: 2vw;
+  min-width: 100px;
+  height: 8vh;
+  font-size: 90%;
   font-weight: bolder;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2vh;
   text-align: center;
   overflow-wrap: break-word;
-  border-radius: 45%;
+  border-radius: 25%;
+  background-color: brown;
+  color: gold;
 }
 
 #btonNewGame{
-  color:blueviolet;
+  color:white;
 }
 
 .current{
   display:inline-block;
   background-color: red;
-  width: 50%;
+  /* width: 50%; */
+  /* min-width: 90%; */
+  /* max-width: 100px; */
+
   margin: auto;
   font-size: 2vw;
   height: 10vw;
   vertical-align: middle;
-  padding: 10% 0 0 0;
+  padding: 5% 5% 0 5%;
 }
 
 #current1, #current2{
-  font-size: 4vw;
+  font-size: 6vw;
   color:white;
 }
 
@@ -103,7 +109,7 @@ button{
   margin-right: auto;
   font-size:7vw;
   background-size: 100%;
-  background-color: black;
+  background-color: rgb(30, 18, 0);
 }
 
 .d0{

@@ -5,6 +5,8 @@ console.log("start the program")
 const soundHold = new Audio("MP3/hold.mp3")
 const soundRollDice = new Audio("MP3/rollDice.mp3")
 const soundOooh = new Audio("MP3/oooh.mp3")
+const soundWin = new Audio("MP3/applause.mp3")
+
 
 // ----- INIT GAME VARIABLES
 
@@ -65,7 +67,9 @@ var startNewGame = () => {
   showScore(2)
   showDice(0)
   current[1] = 0
+  showCurrent(1)
   current[2] = 0
+  showCurrent(2)
   currentPlayer = 1
   gamePlaying = true
   addrPlayer[1].classList.add("activePlayer")
@@ -85,10 +89,10 @@ var rollDice = () => {
       if (resultDice == 1){
         soundOooh.play()
         current[currentPlayer] = 0
-        setTimeout(() => {
+        // setTimeout(() => {
           showCurrent(currentPlayer)
           changePlayer()
-        },999)
+        // },99)
         
       } else {
         current[currentPlayer] += resultDice
@@ -98,22 +102,31 @@ var rollDice = () => {
   }
 }
 
+// and the winner is...
+var showWinner = () => {
+  gamePlaying = false
+  soundWin.play()
+  score[currentPlayer] = 100
+  showScore(currentPlayer)
+}
+
 // hold the Game
 var holdGame = () => {
-  if (gamePlaying) {
+  if (gamePlaying && (current[currentPlayer] > 0)){
     soundHold.play()
     console.log("holdGame");
     score[currentPlayer] += current[currentPlayer]
+    //is there a winner ?
     if (score[currentPlayer] >= 100) {
-      score[currentPlayer] = 100
-      gamePlaying = false
       showWinner()
+
     } else {      
       showScore(currentPlayer)
       changePlayer();
     }
   }
 }
+
 
 // change the player
 var changePlayer = () => {

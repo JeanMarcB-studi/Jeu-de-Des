@@ -5,22 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="Skeleton-2.0.4/css/normalize.css">
-  <!-- <link rel="stylesheet" href="Skeleton-2.0.4/css/skeleton.css"> -->
+  
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <h1 class="">The "ultimate" dice game</h1>
-  <!-- <div style=" vertical-align: middle;text-align: center;padding: 0;"> -->
 
     <button type="button" id="btonNewGame">
       <i class="bi bi-plus-circle"></i>
       NEW GAME
     </button> 
-  <!-- </div> -->
+
+    <div class="center" id="stw">
+      SCORE TO WIN: 
+      <input title="scoreToWin" type="number" step="10" min="20" max="200" name="scoreToWin" id="scoreToWin" value="100">
+    </div>
 
 <div class="container">
-  <!-- <div class="row"> -->
 
     <!-- P L A Y E R  1 -->
     
@@ -83,11 +85,27 @@
           0
         </div>
       </div>
-    </div>
+    </div>   
     
-    
+</div>
 
-  <!-- </div> -->
+<div id="help">
+  Règles :
+Le jeu comprend 2 joueurs sur un seul et même écran.<br> 
+Chaque joueur possède un score temporaire (ROUND) et un score global (GLOBAL). <br>
+À chaque tour, le joueur a son ROUND initialisé à 0 et peut lancer un dé autant de fois qu'il le souhaite. Le 
+résultat d’un lancer est ajouté au ROUND. <br>
+Lors de son tour, le joueur peut décider à tout moment de: <br>
+<ul>
+  <li>
+    Cliquer sur l’option “Hold”, qui permet d’envoyer les points du ROUND vers le GLOBAL. Ce sera alors le
+    tour de l’autre joueur.
+  </li>
+  <li>
+    Lancer le dé. S’il obtient un 1, son score ROUND est perdu et c’est la fin de son tour.
+  </li>
+</ul>
+Le premier joueur qui atteint les 100 points sur global gagne le jeu.
 </div>
 
 <script src="script.js"></script>

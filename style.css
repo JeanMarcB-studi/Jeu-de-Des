@@ -9,6 +9,7 @@ html{
   font-family: 'Lato', sans-serif;
 }
 
+/* put some color on icons */
 i{
   margin: 5px;
   color: chartreuse;
@@ -58,13 +59,14 @@ h1{
   margin: 2%;
 }
 
-.colButton{
-  width:140px;
-}
 .colPlayer{
   flex: 1;
 }
 
+/* DESIGNING THE BUTTONS */
+.colButton{
+  width:140px;
+}
 button{
   display: block;
   width: 15vw;
@@ -88,8 +90,6 @@ button:hover{
   color: yellow;
   transform: scale(104%) ;
 }
-
-
 #btonNewGame{
   color:white;
 }
@@ -97,39 +97,46 @@ button:hover{
   transform: scale(125%) ;
 }
 
+/* SCORE TO WIN */
+#stw{
+  font-weight: bold;
+  font-size: large;
+}
+#scoreToWin{
+  background-color: yellow;
+  font-size: large;
+}
+
+/* CURRENT SCORES */
 .current{
   display:inline-block;
   background-color: red;
-  /* width: 50%; */
-  /* min-width: 90%; */
-  /* max-width: 100px; */
-
   margin: auto;
+  margin-top: 8vh;
   font-size: 2vw;
-  height: 10vw;
+  height: 9vw;
   vertical-align: middle;
   padding: 5% 5% 0 5%;
   font-weight: bolder;
 }
-
 #current1, #current2{
-  font-size: 6vw;
+  font-size: 5vw;
   color:white;
   font-family: 'Lato', sans-serif;
 }
-
 #score1, #score2{
   /* border: 1px solid blue; */
   display: block;
   padding: 0;
   height: 2vm;
-
   margin-top: 0;
   font-family: Lato, sans-serif;
-  font-size: 12vW;
+  font-size: 10vW;
+  font-weight: 200;
   color:red;
 }
 
+/* DICE SHOW */
 #dice{
   display:block;
   border: 3px black solid;
@@ -144,7 +151,6 @@ button:hover{
   background-size: 100%;
   background-color: rgb(30, 18, 0);
 }
-
 .d0{
   background-image: url("IMG/d-0.png")
 }
@@ -165,4 +171,16 @@ button:hover{
 }
 .d6{
   background-image: url("IMG/d-6.png")  
+}
+
+#help{
+  display: block;
+  padding: 2vw;
+  border-width: 2vw;
+  border-color: brown;
+  border-radius: 4%;
+  border-style: solid;
+  text-align: left;
+  background-color: bisque;
+  margin: 2%;
 }

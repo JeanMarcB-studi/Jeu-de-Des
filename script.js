@@ -10,7 +10,7 @@ const soundWin = new Audio("MP3/applause.mp3")
 
 // ----- INIT GAME VARIABLES
 
-const scoreToWin = 100
+let scoreToWin
 let currentPlayer
 let score = new Array()
 let current = new Array()
@@ -28,6 +28,7 @@ addrCurrent[2] = document.querySelector("#current2")
 addrPlayer[1] = document.querySelector("#player1")
 addrPlayer[2] = document.querySelector("#player2")
 
+let addrScoreToWin = document.querySelector("#scoreToWin")
 let addrDice = document.querySelector("#dice")
 
 let btonNewGame = document.querySelector("#btonNewGame")
@@ -74,12 +75,17 @@ var startNewGame = () => {
   gamePlaying = true
   addrPlayer[1].classList.add("activePlayer")
   addrPlayer[2].classList.remove("activePlayer")
+  addrScoreToWin.disabled = false
 }
 
 // roll the dice
 var rollDice = () => {
   if (gamePlaying) {
-    soundRollDice.play()    
+    soundRollDice.play()
+    if (!addrScoreToWin.disabled){
+      scoreToWin = addrScoreToWin.value  
+      addrScoreToWin.disabled = true // block Score to Win
+    }
     resultDice = 1 + Math.floor(Math.random() * 6);
     showDice(0)
     setTimeout(() => {
@@ -106,7 +112,7 @@ var rollDice = () => {
 var showWinner = () => {
   gamePlaying = false
   soundWin.play()
-  score[currentPlayer] = 100
+  score[currentPlayer] = scoreToWin
   showScore(currentPlayer)
 }
 
@@ -117,7 +123,7 @@ var holdGame = () => {
     console.log("holdGame");
     score[currentPlayer] += current[currentPlayer]
     //is there a winner ?
-    if (score[currentPlayer] >= 100) {
+    if (score[currentPlayer] >= scoreToWin) {
       showWinner()
 
     } else {      
@@ -135,21 +141,34 @@ var changePlayer = () => {
     addrPlayer[currentPlayer].classList.remove("activePlayer")
     currentPlayer == 1 ? currentPlayer = 2 : currentPlayer = 1
     addrPlayer[currentPlayer].classList.add("activePlayer")
-  
+    
     current[currentPlayer] = 0
     showCurrent(currentPlayer)
   }, 1000
   )
 }
 
+// Security to avoid issues when multiple clicks: add a delay
+function throttle (fn, delay) {
+  let lastCalled = 0;
+  return (...args) => {
+    // if a new click is done before delay, do nothing
+    let now = new Date().getTime();
+    if(now - lastCalled < delay) {
+      return;
+    }
+    lastCalled = now;
+    return fn(...args);
+  }
+}
+
 // ----- SCANNING THE BUTTONS
 
 btonNewGame.addEventListener("click", () => startNewGame())
-btonRollDice.addEventListener("click", () => rollDice())
-btonHold.addEventListener("click", () => holdGame())
+btonRollDice.addEventListener("click", throttle (rollDice, 1800))
+btonHold.addEventListener("click", throttle(holdGame, 1100))
 
 // ----- LAUNCH THE GAME
 
 startNewGame()
-
 

@@ -94,7 +94,8 @@ button:hover{
   color:white;
 }
 #btonNewGame:hover{
-  transform: scale(125%) ;
+  transform: scale(125%);
+  font-weight: bold;
 }
 
 /* SCORE TO WIN */
@@ -183,4 +184,9 @@ button:hover{
   text-align: left;
   background-color: bisque;
   margin: 2%;
+}
+
+.bi-info-circle{
+  color: blue;
+  font-size: 1em;
 }

@@ -93,7 +93,7 @@ button:hover{
   transform: scale(104%) ;
 }
 button:active, button:focus{
-    box-shadow: 0;
+    box-shadow: none;
     transform: scale(100%) ;
     color:gold;
   }

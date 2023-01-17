@@ -2,6 +2,7 @@ console.log("start the program")
 
 // ----- PRELOAD SOUNDS
 
+const soundStart = new Audio("MP3/gameStart.mp3")
 const soundHold = new Audio("MP3/hold.mp3")
 const soundRollDice = new Audio("MP3/rollDice.mp3")
 const soundOooh = new Audio("MP3/oooh.mp3")
@@ -30,10 +31,12 @@ addrPlayer[2] = document.querySelector("#player2")
 
 let addrScoreToWin = document.querySelector("#scoreToWin")
 let addrDice = document.querySelector("#dice")
+let addrHelp = document.querySelector("#help")
 
 let btonNewGame = document.querySelector("#btonNewGame")
 let btonRollDice = document.querySelector("#btonRollDice")
 let btonHold = document.querySelector("#btonHold")
+let btonHelp = document.querySelector(".bi-info-square")
 
 
 // ----- DEFINE GAME FUNCTIONS
@@ -62,6 +65,7 @@ var showCurrent = (player) => {
 // start a new game
 var startNewGame = () => {
   console.log ("newGame")
+  soundStart.play()
   score[1] = 0
   showScore(1)
   score[2] = 0
@@ -125,7 +129,6 @@ var holdGame = () => {
     //is there a winner ?
     if (score[currentPlayer] >= scoreToWin) {
       showWinner()
-
     } else {      
       showScore(currentPlayer)
       changePlayer();
@@ -133,15 +136,13 @@ var holdGame = () => {
   }
 }
 
-
 // change the player
 var changePlayer = () => {
   console.log("changePlayer");
   setTimeout(() => {
     addrPlayer[currentPlayer].classList.remove("activePlayer")
     currentPlayer == 1 ? currentPlayer = 2 : currentPlayer = 1
-    addrPlayer[currentPlayer].classList.add("activePlayer")
-    
+    addrPlayer[currentPlayer].classList.add("activePlayer")    
     current[currentPlayer] = 0
     showCurrent(currentPlayer)
   }, 1000
@@ -150,23 +151,29 @@ var changePlayer = () => {
 
 // Security to avoid issues when multiple clicks: add a delay
 function throttle (fn, delay) {
-  let lastCalled = 0;
+  let lastCalled = 0
   return (...args) => {
     // if a new click is done before delay, do nothing
-    let now = new Date().getTime();
+    let now = new Date().getTime()
     if(now - lastCalled < delay) {
-      return;
+      return
     }
-    lastCalled = now;
-    return fn(...args);
+    lastCalled = now
+    return fn(...args)
   }
+}
+
+// show/hide the Help on game
+var showHelp = () => {
+  addrHelp.classList.toggle("hideMe")
 }
 
 // ----- SCANNING THE BUTTONS
 
 btonNewGame.addEventListener("click", () => startNewGame())
-btonRollDice.addEventListener("click", throttle (rollDice, 1800))
+btonRollDice.addEventListener("click", throttle (rollDice, 1500))
 btonHold.addEventListener("click", throttle(holdGame, 1100))
+btonHelp.addEventListener("click",() => showHelp())
 
 // ----- LAUNCH THE GAME
 

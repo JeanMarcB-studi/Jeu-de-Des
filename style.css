@@ -19,6 +19,10 @@ i{
   text-align: center;
 }
 
+.hideMe{
+  visibility: hidden;
+}
+
 h1{
   color: red;
   text-align: center;
@@ -27,56 +31,53 @@ h1{
 }
 
 .player1, .player2{
-  width: 5em;
+  flex:2;
   border-style: inset;
   border-width: 3px;
   border-color: rgb(241, 128, 21);
   border-radius: 5px;
   color: grey;
   background-color: rgb(156, 156, 156);
-  font-size: 4vw;
+  font-size: 3vw;
   font-weight: bolder;
-  margin-bottom: 1vw;
-  margin-top: 5vw;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0;
+  margin: 1vw 20px;
+  padding: 10px;
 }
 .activePlayer{
   background-color: rgb(246, 180, 106);
-  color:blue
+  color:black;
 }
 
 .container{
   display: flex;
-  padding: 2vw;
+  padding: 2vw 0;
   border-width: 2vw;
   border-color: brown;
-  border-radius: 4%;
+  border-radius: 20px;
   border-style: solid;
   text-align: center;
   background-color: bisque;
-  margin: 2%;
+  margin: auto;
+  max-width: 850px;
 }
 
 .colPlayer{
-  flex: 1;
+  flex: 2;
+  padding-top: 50px;
 }
 
 /* DESIGNING THE BUTTONS */
 .colButton{
-  width:140px;
+  max-width:240px;
 }
 button{
   display: block;
-  width: 15vw;
-  min-width: 130px;
+  width: 100px;
+  min-width: 100px;
   height: 8vh;
   font-size: 90%;
   font-weight: bolder;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2vh;
+  margin: 0 auto 2vh auto;
   text-align: center;
   overflow-wrap: break-word;
   border-radius: 25%;
@@ -102,6 +103,7 @@ button:hover{
 #stw{
   font-weight: bold;
   font-size: large;
+  margin-bottom: 0.5em;
 }
 #scoreToWin{
   background-color: yellow;
@@ -125,15 +127,14 @@ button:hover{
   color:white;
   font-family: 'Lato', sans-serif;
 }
-#score1, #score2{
-  /* border: 1px solid blue; */
+#score1, #score2{  
   display: block;
   padding: 0;
   height: 2vm;
   margin-top: 0;
   font-family: Lato, sans-serif;
   font-size: 10vW;
-  font-weight: 200;
+  font-weight: 300;
   color:red;
 }
 
@@ -144,10 +145,7 @@ button:hover{
   border-radius: 10px;
   height:100px;
   width:100px;
-  margin-top: 8vw;
-  margin-bottom: 8vw;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 8vW auto 8vw auto;
   font-size:7vw;
   background-size: 100%;
   background-color: rgb(30, 18, 0);
@@ -179,14 +177,20 @@ button:hover{
   padding: 2vw;
   border-width: 2vw;
   border-color: brown;
-  border-radius: 4%;
+  border-radius: 20px;
   border-style: solid;
   text-align: left;
   background-color: bisque;
-  margin: 2%;
+  margin: 7px auto;
+  max-width: 850px;
 }
 
-.bi-info-circle{
+
+.bi-info-square{
   color: blue;
-  font-size: 1em;
+  font-size: 1.6em;
+  box-shadow: gold 0px 0px 4px 2px;
+}
+.bi-info-square:hover{
+  color:red;
 }

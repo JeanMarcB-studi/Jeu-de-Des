@@ -12,12 +12,13 @@
 <body>
   <h1 class="">The "ultimate" dice game</h1>
 
-    <button type="button" id="btonNewGame">
-      <i class="bi bi-plus-circle"></i>
-      NEW GAME
-    </button> 
+
 
     <div class="center" id="stw">
+      <!-- <div class="center"> -->
+        <i class="bi bi-info-square"></i>
+      <!-- </div> -->
+      
       SCORE TO WIN: 
       <input title="scoreToWin" type="number" step="10" min="20" max="200" name="scoreToWin" id="scoreToWin" value="100">
     </div>
@@ -48,6 +49,10 @@
     <!-- G A M E   C O N T R O L S -->
 
     <div class="colButton">
+      <button type="button" id="btonNewGame">
+        <i class="bi bi-plus-circle"></i>
+        NEW GAME
+      </button> 
       <div id="dice" class="d0">
                 
       </div>
@@ -86,8 +91,9 @@
     
 </div>
 
-<div id="help">
-  <i class="bi bi-info-circle"></i>
+
+<div id="help" class="hideMe">
+  <i class="bi bi-info-square"></i>
 Règles : <br>
 Le jeu comprend 2 joueurs sur un seul et même écran.<br> 
 Chaque joueur possède un score temporaire (ROUND) et un score global (GLOBAL). <br>

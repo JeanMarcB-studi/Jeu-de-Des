@@ -7,28 +7,31 @@
 /* as required, LATO font */
 html{
   font-family: 'Lato', sans-serif;
-  padding: 3px;
+  padding: 5px;
+}
+h1{
+  color: red;
+  text-align: center;
+  font-style: italic;
 }
 
-/* put some color on icons */
-i{
-  margin: 5px;
-  color: chartreuse;
+/* DESIGN THE GAME BOARD */
+
+.container{
+  display: flex;
+  padding: 2vw 0;
+  border-width: 2vw;
+  border-color: brown;
+  border-radius: 20px;
+  border-style: solid;
+  text-align: center;
+  background-color: bisque;
+  margin: auto;
+  max-width: 850px;
 }
 
 .center{
   text-align: center;
-}
-
-.hideMe{
-  visibility: hidden;
-}
-
-h1{
-  color: red;
-  text-align: center;
-  font-family: 'Lato', sans-serif;
-  font-style: italic;
 }
 
 .player1, .player2{
@@ -44,22 +47,10 @@ h1{
   margin: 1vw 20px;
   padding: 10px;
 }
+
 .activePlayer{
   background-color: rgb(246, 180, 106);
   color:black;
-}
-
-.container{
-  display: flex;
-  padding: 2vw 0;
-  border-width: 2vw;
-  border-color: brown;
-  border-radius: 20px;
-  border-style: solid;
-  text-align: center;
-  background-color: bisque;
-  margin: auto;
-  max-width: 850px;
 }
 
 .colPlayer{
@@ -92,13 +83,15 @@ button:hover{
   color: yellow;
   transform: scale(104%) ;
 }
+/* because mobiles do not manage :hover */
 button:active, button:focus{
-    box-shadow: none;
-    transform: scale(100%) ;
-    color:gold;
-  }
-
-
+  box-shadow: none;
+  transform: scale(100%) ;
+}
+i{
+  margin: 5px;
+  color: chartreuse;
+}
 #btonNewGame{
   color:white;
 }
@@ -133,14 +126,12 @@ button:active, button:focus{
 #current1, #current2{
   font-size: 5vw;
   color:white;
-  font-family: 'Lato', sans-serif;
 }
 #score1, #score2{  
   display: block;
   padding: 0;
   height: 2vm;
   margin-top: 0;
-  font-family: Lato, sans-serif;
   font-size: 10vW;
   font-weight: 300;
   color:red;
@@ -180,6 +171,8 @@ button:active, button:focus{
   background-image: url("IMG/d-6.png")  
 }
 
+/* HELP MANAGEMENT */
+
 #help{
   display: block;
   padding: 2vw 20px;
@@ -192,8 +185,6 @@ button:active, button:focus{
   margin: 7px auto;
   max-width: 810px;
 }
-
-
 .bi-info-square{
   color: blue;
   font-size: 1.6em;
@@ -201,4 +192,7 @@ button:active, button:focus{
 }
 .bi-info-square:hover{
   color:red;
+}
+.hideMe{
+  visibility: hidden;
 }

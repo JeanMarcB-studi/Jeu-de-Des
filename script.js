@@ -36,13 +36,12 @@ let addrHelp = document.querySelector("#help")
 let btonNewGame = document.querySelector("#btonNewGame")
 let btonRollDice = document.querySelector("#btonRollDice")
 let btonHold = document.querySelector("#btonHold")
-let btonHelp = document.querySelector(".bi-info-square")
+let btonHelp = document.querySelectorAll(".bi-info-square")
 
 
 // ----- DEFINE GAME FUNCTIONS
 
 // show the dice face value
-
 var showDice = (value) => {
   addrDice.classList.remove(`d${oldValue}`)
   addrDice.classList.add(`d${value}`)
@@ -173,7 +172,8 @@ var showHelp = () => {
 btonNewGame.addEventListener("click", () => startNewGame())
 btonRollDice.addEventListener("click", throttle (rollDice, 1500))
 btonHold.addEventListener("click", throttle(holdGame, 1100))
-btonHelp.addEventListener("click",() => showHelp())
+btonHelp[0].addEventListener("click",() => showHelp())
+btonHelp[1].addEventListener("click",() => showHelp())
 
 // ----- LAUNCH THE GAME
 

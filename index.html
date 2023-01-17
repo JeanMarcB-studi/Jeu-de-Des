@@ -3,39 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="Skeleton-2.0.4/css/normalize.css">
-  
+  <title>Un jeu de dés à deux pour la pause café</title>
+  <link rel="stylesheet" href="Skeleton-2.0.4/css/normalize.css">  
   <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Un chouette jeu de dés pour jouer à deux sur un mobile ou bien sur un PC. Choisissez le total à atteindre et puis hop : lancez les dés !">
 </head>
 
 <body>
-  <h1 class="">The "ultimate" dice game</h1>
-
-
-
+  <header>
+    <!-- GAME TITLE -->
+    <h1 class="">The "ultimate" dice game</h1>
+    <!-- HELP BUTTON AND SCORE TO REACH -->
     <div class="center" id="stw">
-      <!-- <div class="center"> -->
-        <i class="bi bi-info-square"></i>
-      <!-- </div> -->
-      
+      <i class="bi bi-info-square"></i>
       SCORE TO WIN: 
       <input title="scoreToWin" type="number" step="10" min="20" max="200" name="scoreToWin" id="scoreToWin" value="100">
     </div>
+  </header>
 
-<div class="container">
-
+  <!-- .................... GAME BOARD ............................... -->
+  <main class="container">
+    
     <!-- P L A Y E R  1 -->
     
     <div class="colPlayer">
       <div id="player1" class="player1 activePlayer">
         PLAYER 1
       </div>
-
+      
       <div id="score1">
         0
       </div>
-
+      
       <div class="current">
         <div>
           CURRENT
@@ -47,7 +46,7 @@
     </div>
     
     <!-- G A M E   C O N T R O L S -->
-
+    
     <div class="colButton">
       <button type="button" id="btonNewGame">
         <i class="bi bi-plus-circle"></i>
@@ -74,11 +73,11 @@
       <div id="player2" class="player2">
         PLAYER 2
       </div>
-
+      
       <div id="score2">
         0
       </div>
-
+      
       <div class="current">
         <div>
           CURRENT
@@ -89,31 +88,30 @@
       </div>
     </div>   
     
-</div>
+  </main>
+  
+  <!-- .................... HELP BOARD ............................... -->
+  
+  <article id="help" class="hideMe">
+    <i class="bi bi-info-square"></i>
+    Règles : <br>
+    Le jeu comprend 2 joueurs sur un seul et même écran.<br> 
+    Chaque joueur possède un score temporaire (ROUND) et un score global (GLOBAL). <br>
+    À chaque tour, le joueur a son ROUND initialisé à 0 et peut lancer un dé autant de fois qu'il le souhaite. Le résultat d’un lancer est ajouté au ROUND. <br>
+    Lors de son tour, le joueur peut décider à tout moment de: <br>
+    <ul>
+      <li>
+        Cliquer sur l’option “Hold”, qui permet d’envoyer les points du ROUND vers le GLOBAL. Ce sera alors le tour de l’autre joueur.
+      </li>
+      <li>
+        Lancer le dé. S’il obtient un 1, son score ROUND est perdu et c’est la fin de son tour.
+      </li>
+    </ul>
+    Le premier joueur qui atteint les 100 points sur global gagne le jeu. <br>
+    NB : en début de partie, avant de jeter le dé il est possible de modifier la valeur cible de points à atteindre (choisir des valeurs entre 20 et 200).
+</article>
 
-
-<div id="help" class="hideMe">
-  <i class="bi bi-info-square"></i>
-Règles : <br>
-Le jeu comprend 2 joueurs sur un seul et même écran.<br> 
-Chaque joueur possède un score temporaire (ROUND) et un score global (GLOBAL). <br>
-À chaque tour, le joueur a son ROUND initialisé à 0 et peut lancer un dé autant de fois qu'il le souhaite. Le 
-résultat d’un lancer est ajouté au ROUND. <br>
-Lors de son tour, le joueur peut décider à tout moment de: <br>
-<ul>
-  <li>
-    Cliquer sur l’option “Hold”, qui permet d’envoyer les points du ROUND vers le GLOBAL. Ce sera alors le
-    tour de l’autre joueur.
-  </li>
-  <li>
-    Lancer le dé. S’il obtient un 1, son score ROUND est perdu et c’est la fin de son tour.
-  </li>
-</ul>
-Le premier joueur qui atteint les 100 points sur global gagne le jeu. <br>
-NB : en début de partie, avant de jeter le dé : il est possible de modifier la valeur cible de points à atteindre (valeurs entre 20 et 200).
-
-</div>
-
+<!-- DO NOT FORGET GAME MOTOR -->
 <script src="script.js"></script>
 
 </body>

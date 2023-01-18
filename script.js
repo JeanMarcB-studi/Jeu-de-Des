@@ -56,8 +56,7 @@ var showScore = (player) => {
 
 // show the current value for player 1 or 2
 var showCurrent = (player) => {
-  console.log("showCurrent for player: " + player + " = "+ current[player])
-  
+  console.log("showCurrent for player: " + player + " = "+ current[player])  
   addrCurrent[player].innerText = current[player]
 }
 
@@ -98,10 +97,8 @@ var rollDice = () => {
       if (resultDice == 1){
         soundOooh.play()
         current[currentPlayer] = 0
-        // setTimeout(() => {
           showCurrent(currentPlayer)
           changePlayer()
-        // },99)
         
       } else {
         current[currentPlayer] += resultDice

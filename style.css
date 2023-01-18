@@ -50,7 +50,12 @@ h1{
 
 .activePlayer{
   background-color: rgb(246, 180, 106);
+  background-color: rgb(106, 246, 118);
   color:black;
+}
+.activePlayer::after{
+  color: red;
+  content:  "▼"; 
 }
 
 .colPlayer{

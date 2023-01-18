@@ -46,6 +46,7 @@ h1{
   font-weight: bolder;
   margin: 1vw 20px;
   padding: 10px;
+  height: 65px;
 }
 
 .activePlayer{

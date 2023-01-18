@@ -42,12 +42,12 @@ h1{
   border-radius: 5px;
   color: grey;
   background-color: rgb(156, 156, 156);
-  font-size: 2.5vw;
+  font-size: 4vw;
   font-weight: bolder;
   margin: 1vw 2vw;
-  padding: 15px;
-  height: 2vw; 
-  max-height: 50px;
+  padding: 5px;
+  height: 5vw; 
+  /* max-height: 50px; */
 }
 
 .activePlayer{

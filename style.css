@@ -34,6 +34,7 @@ h1{
   text-align: center;
 }
 
+/* SHOWING WHO PLAYS */
 .player1, .player2{
   flex:2;
   border-style: inset;
@@ -44,12 +45,17 @@ h1{
   background-color: rgb(156, 156, 156);
   font-size: 4vw;
   font-weight: bolder;
-  margin: 1vw 2vw;
-  padding: 5px;
+  margin: 1vw 17%;
+  padding: 5px 0;
   height: 5vw; 
-  /* max-height: 50px; */
 }
-
+@media (min-width: 850px){
+  .player1, .player2{
+    font-size: 32px;
+    margin: 10px 57px;
+    height: 42px;   
+    }
+}
 .activePlayer{
   background-color: rgb(246, 180, 106);
   background-color: rgb(106, 246, 118);
@@ -60,15 +66,13 @@ h1{
   content:  "▼"; 
 }
 
+
 .colPlayer{
   flex: 2;
   padding-top: 50px;
 }
 
 /* DESIGNING THE BUTTONS */
-.colButton{
-  max-width:240px;
-}
 button{
   display: block;
   width: 100px;

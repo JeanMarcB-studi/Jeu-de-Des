@@ -42,26 +42,26 @@ let btonHelp = document.querySelectorAll(".bi-info-square")
 // ----- DEFINE GAME FUNCTIONS
 
 // show the dice face value
-var showDice = (value) => {
+let showDice = (value) => {
   addrDice.classList.remove(`d${oldValue}`)
   addrDice.classList.add(`d${value}`)
   oldValue = value
 }
 
 // show the score for player 1 or 2
-var showScore = (player) => {
+let showScore = (player) => {
   console.log("showScore for player: " + player)
   addrScore[player].innerText = score[player]
 }
 
 // show the current value for player 1 or 2
-var showCurrent = (player) => {
+let showCurrent = (player) => {
   console.log("showCurrent for player: " + player + " = "+ current[player])  
   addrCurrent[player].innerText = current[player]
 }
 
 // start a new game
-var startNewGame = () => {
+let startNewGame = () => {
   console.log ("newGame")
   soundStart.play()
   score[1] = 0
@@ -81,7 +81,7 @@ var startNewGame = () => {
 }
 
 // roll the dice
-var rollDice = () => {
+let rollDice = () => {
   if (gamePlaying) {
     soundRollDice.play()
     if (!addrScoreToWin.disabled){
@@ -109,7 +109,7 @@ var rollDice = () => {
 }
 
 // and the winner is...
-var showWinner = () => {
+let showWinner = () => {
   gamePlaying = false
   soundWin.play()
   score[currentPlayer] = scoreToWin
@@ -117,7 +117,7 @@ var showWinner = () => {
 }
 
 // hold the Game
-var holdGame = () => {
+let holdGame = () => {
   if (gamePlaying && (current[currentPlayer] > 0)){
     soundHold.play()
     console.log("holdGame");
@@ -133,7 +133,7 @@ var holdGame = () => {
 }
 
 // change the player
-var changePlayer = () => {
+let changePlayer = () => {
   console.log("changePlayer");
   setTimeout(() => {
     addrPlayer[currentPlayer].classList.remove("activePlayer")
@@ -160,7 +160,7 @@ function throttle (fn, delay) {
 }
 
 // show/hide the Help on game
-var showHelp = () => {
+let showHelp = () => {
   addrHelp.classList.toggle("hideMe")
 }
 
